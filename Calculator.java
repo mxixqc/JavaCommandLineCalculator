@@ -36,14 +36,9 @@ class Calculator{
         }
 
         if (option <= 4){
-            System.out.print("Enter the first number, a: ");
-            double num1 = sc.nextDouble();
-
-            System.out.print("Enter the second number, b:");
-            double num2 = sc.nextDouble();        
+            double num1 = validateInput("Enter the first number, a: ");
+            double num2 = validateInput("Enter the second number, b:");        
             
-            
-            System.out.println("Double entered is: " + num2);
             switch(option){
                 case 1:
                     printout(num1 + num2);
@@ -63,8 +58,8 @@ class Calculator{
             System.out.println();
         }
         if (option>4 && option<=7){
-            System.out.print("Enter the number, a: ");
-            double num1 = sc.nextDouble();
+
+            double num1 = validateInput("Enter the number, X: ");
             switch(option){
                 case 5:
                     printout(Math.sqrt(num1));
@@ -73,8 +68,7 @@ class Calculator{
                     printout(Math.cbrt(num1));
                     break;
                 case 7:
-                    System.out.print("Enter the number you want to root, b: ");
-                    double num2 = sc.nextDouble();
+                    double num2 = validateInput("Enter the number you want to root, b: ");
                     printout(String.format("The %.2fth root of %.2f ",num1, num2),xroot(num1, num2));
                     break;
                 default:
@@ -95,5 +89,16 @@ class Calculator{
 
     public static void printout(String message , double x){
         System.out.println(message + x);
+    }
+
+    public static double validateInput(String message){
+        Scanner sc2 = new Scanner(System.in);
+        System.out.print(message);
+        while (!sc2.hasNextDouble()){
+            System.out.println("Invalid input, please try again");
+            System.out.print(message);
+            sc2.next();
+        }
+        return sc2.nextDouble();
     }
 }
