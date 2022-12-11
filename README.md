@@ -17,6 +17,6 @@ To run the calculator, follow these steps:
 2. Open a command-line terminal and navigate to the directory where you downloaded the calculator.jar file.
 3. Run the following command:
 <br>
-`java -jar calculator.jar`
+`java -jar Calculator.jar`
 <br>
 Follow the on-screen instructions to enter the numbers and the operation you want to perform.

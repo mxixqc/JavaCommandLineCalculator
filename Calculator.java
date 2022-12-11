@@ -19,13 +19,21 @@ class Calculator{
 
         Scanner sc = new Scanner(System.in);
 
-
+        while (!sc.hasNextInt()){
+            System.out.println("Invalid option, please try again");
+            System.out.print(">");
+            sc.next();
+        }
         int option = sc.nextInt();
+        while (option < 1 || option > 8){
+            System.out.println("Invalid option, please try again");
+            System.out.print(">");
+            option = sc.nextInt();
+        }
         if (option == 8){
             System.out.println("Thank you for using this calculator");
             return;
         }
-
 
         if (option <= 4){
             System.out.print("Enter the first number, a: ");
